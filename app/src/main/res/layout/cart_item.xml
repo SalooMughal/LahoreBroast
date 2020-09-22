@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="7dp"
+    android:background="@drawable/cart_item_background">
+
+    <com.lb.lahorebroast.utilities.ImageWidget
+        android:id="@+id/cartImg"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/cartProTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:fontFamily="@font/nunitosans_bold"
+        android:text="TextView"
+        android:textColor="@color/productTitleColor"
+        app:layout_constraintBottom_toTopOf="@+id/cartImg"
+        app:layout_constraintStart_toEndOf="@+id/cartImg" />
+
+    <TextView
+        android:id="@+id/cartProUnit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/nunitosans_bold"
+        android:text="TextView"
+        android:textColor="@color/productUnitColor"
+        app:layout_constraintStart_toStartOf="@+id/cartProTitle"
+        app:layout_constraintTop_toBottomOf="@+id/cartProTitle" />
+
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/nunitosans_bold"
+        android:text="Total"
+        android:textColor="@color/mainThemeColor"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@+id/cartProUnit"
+        app:layout_constraintTop_toBottomOf="@+id/cartImg" />
+
+    <TextView
+        android:id="@+id/cartProTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:fontFamily="@font/nunitosans_bold"
+        android:text="200"
+        android:textColor="@color/mainThemeColor"
+        app:layout_constraintStart_toEndOf="@+id/textView21"
+        app:layout_constraintTop_toTopOf="@+id/textView21" />
+
+    <ImageView
+        android:id="@+id/cartItemPlus"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintBottom_toBottomOf="@+id/cartProTotal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/plusbtn" />
+
+    <ImageView
+        android:id="@+id/carItemMinus"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/cartItemPlus"
+        app:layout_constraintTop_toTopOf="@+id/cartProTitle"
+        app:srcCompat="@drawable/removeitem" />
+
+    <TextView
+        android:id="@+id/cartItemCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:fontFamily="@font/nunitosans_bold"
+        android:text="20"
+        android:textColor="@color/productTitleColor"
+        app:layout_constraintBottom_toTopOf="@+id/cartItemPlus"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/view9"
+        app:layout_constraintTop_toBottomOf="@+id/carItemMinus" />
+
+    <View
+        android:id="@+id/view9"
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="2dp"
+        android:background="@color/productTitleColor"
+        app:layout_constraintBottom_toBottomOf="@+id/cartItemPlus"
+        app:layout_constraintEnd_toStartOf="@+id/cartItemPlus"
+        app:layout_constraintTop_toTopOf="@+id/carItemMinus" />
+</androidx.constraintlayout.widget.ConstraintLayout>

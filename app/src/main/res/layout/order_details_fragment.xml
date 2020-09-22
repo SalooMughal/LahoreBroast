@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:clickable="true"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:focusable="true">
+
+    <ImageView
+        android:id="@+id/bckOrderDetailPage"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/previous"
+        android:tint="@color/mainThemeColor"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+    <TextView
+        android:id="@+id/catTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Order Detail"
+        android:textColor="@color/mainThemeColor"
+        app:layout_constraintBottom_toBottomOf="@+id/bckOrderDetailPage"
+        app:layout_constraintStart_toEndOf="@+id/bckOrderDetailPage"
+        app:layout_constraintTop_toTopOf="@+id/bckOrderDetailPage" />
+
+    <!--    <ScrollView-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="0dp"-->
+    <!--        android:layout_marginTop="8dp"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/catTitle">-->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/catTitle">
+
+        <TextView
+            android:id="@+id/orderType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunitosans_bold"
+            android:text="COD"
+            android:textColor="@color/mainThemeColor"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@+id/textView37"
+            app:layout_constraintTop_toBottomOf="@+id/textView37" />
+
+        <TextView
+            android:id="@+id/orderDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/nunitosans_bold"
+            android:text="20/06/2020"
+            android:textColor="@color/hintColor"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView44"
+            app:layout_constraintStart_toEndOf="@+id/textView44"
+            app:layout_constraintTop_toTopOf="@+id/textView44" />
+
+        <TextView
+            android:id="@+id/orderDay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/nunitosans_bold"
+            android:text="InPRogress"
+            android:textColor="@color/hintColor"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/textView38"
+            app:layout_constraintTop_toTopOf="@+id/textView38" />
+
+        <TextView
+            android:id="@+id/textView30"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunitosans_bold"
+            android:paddingEnd="5dp"
+            android:text="Amount"
+            android:textColor="@color/productTitleColor"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/orderTotal"
+            app:layout_constraintStart_toEndOf="@+id/view11"
+            app:layout_constraintStart_toStartOf="@+id/orderTotal"
+            app:layout_constraintTop_toTopOf="@+id/textView23" />
+
+        <TextView
+            android:id="@+id/orderTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/nunitosans_extrabold"
+            android:paddingEnd="5dp"
+            android:text="500"
+            android:textColor="@color/productTitleColor"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView30" />
+
+        <View
+            android:id="@+id/view11"
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="32dp"
+            android:background="@color/txtColor"
+            app:layout_constraintBottom_toBottomOf="@+id/orderTotal"
+            app:layout_constraintEnd_toStartOf="@+id/orderTotal"
+            app:layout_constraintTop_toBottomOf="@+id/textView30" />
+
+        <TextView
+            android:id="@+id/textView23"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunitosans_bold"
+            android:text="ITEMS"
+            android:textColor="@color/productTitleColor"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/orderItemQty"
+            app:layout_constraintStart_toStartOf="@+id/textView24"
+            app:layout_constraintTop_toTopOf="@+id/textView37" />
+
+        <TextView
+            android:id="@+id/textView24"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunitosans_extrabold"
+            android:text="X"
+            android:textColor="@color/productTitleColor"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/orderItemQty"
+            app:layout_constraintEnd_toStartOf="@+id/orderItemQty"
+            app:layout_constraintTop_toTopOf="@+id/orderItemQty" />
+
+        <TextView
+            android:id="@+id/orderItemQty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            android:fontFamily="@font/nunitosans_extrabold"
+            android:text="30"
+            android:textColor="@color/productTitleColor"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="@+id/orderTotal"
+            app:layout_constraintEnd_toStartOf="@+id/view11"
+            app:layout_constraintTop_toTopOf="@+id/orderTotal" />
+
+        <TextView
+            android:id="@+id/textView37"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/nunitosans_bold"
+            android:text="Payment Type"
+            android:textColor="@color/productTitleColor"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView38"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/nunitosans_bold"
+            android:text="Order status"
+            android:textColor="@color/productTitleColor"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/textView37"
+            app:layout_constraintTop_toBottomOf="@+id/orderType" />
+
+        <TextView
+            android:id="@+id/textView44"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/nunitosans_bold"
+            android:text="Order Date"
+            android:textColor="@color/productTitleColor"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/textView38"
+            app:layout_constraintTop_toBottomOf="@+id/orderDay" />
+
+        <TextView
+            android:id="@+id/textView50"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:text="All Items"
+            android:fontFamily="@font/nunitosans_bold"
+            android:textColor="@color/productTitleColor"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/textView44"
+            app:layout_constraintTop_toBottomOf="@+id/orderDate" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvOrderItems"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/productBckColor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView50"
+            app:layout_constraintVertical_bias="0.060000002" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <!--    </ScrollView>-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

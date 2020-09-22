@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="7dp"
+    android:id="@+id/orderItem"
+    android:background="@drawable/fields_background">
+
+    <TextView
+        android:id="@+id/orderType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/nunitosans_bold"
+        android:text="Instant"
+        android:textColor="@color/mainThemeColor"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline10"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/orderDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/nunitosans_bold"
+        android:text="20/06/2020"
+        android:textColor="@color/productTitleColor"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline10"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/orderType"
+        app:layout_constraintTop_toBottomOf="@+id/orderType" />
+
+    <TextView
+        android:id="@+id/orderDay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="@font/nunitosans_bold"
+        android:text="Wednesday"
+        android:textColor="@color/productTitleColor"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline10"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/orderDate"
+        app:layout_constraintTop_toBottomOf="@+id/orderDate" />
+
+    <TextView
+        android:id="@+id/textView30"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/nunitosans_bold"
+        android:paddingEnd="5dp"
+        android:text="Total"
+        android:textColor="@color/productTitleColor"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/orderTotal"
+        app:layout_constraintStart_toStartOf="@+id/orderTotal"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/orderTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/nunitosans_extrabold"
+        android:paddingEnd="5dp"
+        android:text="500"
+        android:textColor="@color/productTitleColor"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView30" />
+
+    <View
+        android:id="@+id/view11"
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="32dp"
+        android:background="@color/txtColor"
+        app:layout_constraintBottom_toBottomOf="@+id/orderTotal"
+        app:layout_constraintEnd_toStartOf="@+id/orderTotal"
+        app:layout_constraintTop_toBottomOf="@+id/textView30" />
+
+    <TextView
+        android:id="@+id/textView23"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/nunitosans_bold"
+        android:text="ITEMS"
+        android:textColor="@color/productTitleColor"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/orderItemQty"
+        app:layout_constraintStart_toStartOf="@+id/textView24"
+        app:layout_constraintTop_toTopOf="@+id/textView30" />
+
+    <TextView
+        android:id="@+id/textView24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:fontFamily="@font/nunitosans_extrabold"
+        android:text="X"
+        android:textColor="@color/productTitleColor"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/orderItemQty"
+        app:layout_constraintEnd_toStartOf="@+id/orderItemQty"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline10"
+        app:layout_constraintTop_toTopOf="@+id/orderItemQty" />
+
+    <TextView
+        android:id="@+id/orderItemQty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:fontFamily="@font/nunitosans_extrabold"
+        android:text="30"
+        android:textColor="@color/productTitleColor"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/orderTotal"
+        app:layout_constraintEnd_toStartOf="@+id/view11"
+        app:layout_constraintTop_toTopOf="@+id/orderTotal" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.37" />
+</androidx.constraintlayout.widget.ConstraintLayout>

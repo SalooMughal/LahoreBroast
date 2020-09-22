@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#ed1c24</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="mainThemeColor">#ed1c24</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="txtColor">#666666</color>
+    <color name="productTitleColor">#333333</color>
+    <color name="productUnitColor">#999999</color>
+    <color name="productBckColor">#e8e8e8</color>
+    <color name="hintColor">#cccccc</color>
+    <color name="fieldColor">#effdde</color>
+    <color name="unSelectedItem">#9ea634</color>
+    <color name="darkThemeColor">#719347</color>
+    <color name="backgroundSlot">#d2f5a8</color>
+</resources>

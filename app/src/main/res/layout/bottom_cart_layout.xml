@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/bottomSheet"
+    app:layout_behavior="@string/bottom_sheet_behavior">
+
+    <ImageView
+        android:id="@+id/arrow"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/arrow" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/home_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/arrow">
+
+
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/nunitosans_bold"
+            android:paddingEnd="5dp"
+            android:text="TOTAL PKR"
+            android:textColor="@color/mainThemeColor"
+            android:textSize="8sp"
+            app:layout_constraintEnd_toEndOf="@+id/cartButtomAmount"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/cartButtomAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/nunitosans_bold"
+            android:paddingEnd="5dp"
+            android:text="500"
+            android:textColor="@color/productTitleColor"
+            android:textSize="22sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView19" />
+
+        <FrameLayout
+            android:id="@+id/cityContainer"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/fields_background"
+            app:layout_constraintEnd_toEndOf="@+id/instantNotes"
+            app:layout_constraintStart_toStartOf="@+id/instantNotes"
+            app:layout_constraintTop_toBottomOf="@+id/textView54">
+
+
+            <TextView
+                android:id="@+id/cityText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:focusable="false"
+                android:fontFamily="@font/nunitosans_bold"
+                android:hint="Select your city"
+                android:paddingStart="20dp"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <com.jaredrummler.materialspinner.MaterialSpinner
+                android:id="@+id/cityMenu"
+                android:layout_width="wrap_content"
+                android:layout_height="15sp"
+                android:layout_gravity="center_vertical|end"
+                android:layout_marginEnd="30dp"
+                android:gravity="center_vertical"
+                android:textColor="@color/black"
+                app:ms_arrow_tint="@color/black"
+                app:ms_hint="1122" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/branchContainer"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/fields_background"
+            app:layout_constraintEnd_toEndOf="@+id/instantNotes"
+            app:layout_constraintStart_toStartOf="@+id/instantNotes"
+            app:layout_constraintTop_toBottomOf="@+id/cityContainer">
+
+            <com.jaredrummler.materialspinner.MaterialSpinner
+                android:id="@+id/branchMenu"
+                android:layout_width="wrap_content"
+                android:layout_height="15sp"
+                android:layout_gravity="center_vertical|end"
+                android:layout_marginEnd="30dp"
+                android:gravity="center_vertical"
+                android:textColor="@color/black"
+                app:ms_arrow_tint="@color/black"
+                app:ms_hint="1122" />
+
+            <TextView
+                android:id="@+id/branchText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:focusable="false"
+                android:fontFamily="@font/nunitosans_bold"
+                android:hint="Select your nearest branch"
+                android:paddingStart="20dp"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/areaContainer"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/fields_background"
+            app:layout_constraintEnd_toEndOf="@+id/instantNotes"
+            app:layout_constraintStart_toStartOf="@+id/instantNotes"
+            app:layout_constraintTop_toBottomOf="@+id/branchContainer">
+
+            <com.jaredrummler.materialspinner.MaterialSpinner
+                android:id="@+id/areaMenu"
+                android:layout_width="wrap_content"
+                android:layout_height="15sp"
+                android:layout_gravity="center_vertical|end"
+                android:layout_marginEnd="30dp"
+                android:gravity="center_vertical"
+                android:textColor="@color/black"
+                app:ms_arrow_tint="@color/black"
+                app:ms_hint="1122" />
+
+            <TextView
+                android:id="@+id/areaText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:focusable="false"
+                android:fontFamily="@font/nunitosans_bold"
+                android:hint="Select your area"
+                android:paddingStart="20dp"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+
+        </FrameLayout>
+
+        <EditText
+            android:id="@+id/instantAddress"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/fields_background"
+            android:ems="10"
+            android:fontFamily="@font/nunitosans_bold"
+            android:hint="Add your Address"
+            android:inputType="textPersonName"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:textColorHint="@color/productUnitColor"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/instantOrder"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/areaContainer" />
+
+        <EditText
+            android:id="@+id/instantNotes"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/fields_background"
+            android:ems="10"
+            android:fontFamily="@font/nunitosans_bold"
+            android:hint="Add your notes here"
+            android:inputType="textPersonName"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:textColorHint="@color/productUnitColor"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/instantOrder"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/instantAddress" />
+
+        <Button
+            android:id="@+id/instantOrder"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/add_crt_btn"
+            android:fontFamily="@font/nunitosans_bold"
+            android:text="Order"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/cartButtomAmount"
+            app:layout_constraintStart_toStartOf="@+id/textView52"
+            app:layout_constraintTop_toBottomOf="@+id/instantNotes"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <View
+            android:id="@+id/view11"
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="32dp"
+            android:background="@color/txtColor"
+            app:layout_constraintBottom_toBottomOf="@+id/cartButtomAmount"
+            app:layout_constraintEnd_toStartOf="@+id/cartButtomAmount"
+            app:layout_constraintTop_toTopOf="@+id/textView19" />
+
+        <TextView
+            android:id="@+id/textView23"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunitosans_bold"
+            android:text="ITEMS"
+            android:textColor="@color/mainThemeColor"
+            android:textSize="8sp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView19"
+            app:layout_constraintEnd_toEndOf="@+id/cartBottomQty"
+            app:layout_constraintStart_toStartOf="@+id/textView24"
+            app:layout_constraintTop_toTopOf="@+id/textView19" />
+
+        <TextView
+            android:id="@+id/textView24"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunitosans_bold"
+            android:text="X"
+            android:textColor="@color/productTitleColor"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/cartBottomQty"
+            app:layout_constraintEnd_toStartOf="@+id/cartBottomQty"
+            app:layout_constraintTop_toTopOf="@+id/cartBottomQty" />
+
+        <TextView
+            android:id="@+id/cartBottomQty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            android:fontFamily="@font/nunitosans_bold"
+            android:text="30"
+            android:textColor="@color/productTitleColor"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toBottomOf="@+id/cartButtomAmount"
+            app:layout_constraintEnd_toStartOf="@+id/view11"
+            app:layout_constraintTop_toTopOf="@+id/cartButtomAmount" />
+
+        <TextView
+            android:id="@+id/textView52"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/nunitosans_bold"
+            android:text="Payment Type"
+            android:textColor="@color/mainThemeColor"
+            android:textSize="10sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView23" />
+
+        <TextView
+            android:id="@+id/textView54"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/nunitosans_bold"
+            android:text="Cash On Delivery"
+            android:textColor="@color/productTitleColor"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/textView52"
+            app:layout_constraintTop_toBottomOf="@+id/textView52" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
