@@ -45,7 +45,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline3">
 
         <EditText
-            android:id="@+id/password"
+            android:id="@+id/passwordProfile"
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_marginStart="24dp"
@@ -76,7 +76,7 @@
             android:inputType="phone"
             android:padding="5dp"
             android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="@+id/password"
+            app:layout_constraintEnd_toEndOf="@+id/passwordProfile"
             app:layout_constraintStart_toEndOf="@+id/textView14"
             app:layout_constraintTop_toBottomOf="@+id/imageView15" />
 
@@ -111,9 +111,9 @@
             android:text="Login"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            app:layout_constraintEnd_toEndOf="@+id/password"
-            app:layout_constraintStart_toStartOf="@+id/password"
-            app:layout_constraintTop_toBottomOf="@+id/password" />
+            app:layout_constraintEnd_toEndOf="@+id/passwordProfile"
+            app:layout_constraintStart_toStartOf="@+id/passwordProfile"
+            app:layout_constraintTop_toBottomOf="@+id/passwordProfile" />
 
         <TextView
             android:id="@+id/textView14"
@@ -126,11 +126,11 @@
             android:textColor="@color/productTitleColor"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="@+id/phone_number"
-            app:layout_constraintStart_toStartOf="@+id/password"
+            app:layout_constraintStart_toStartOf="@+id/passwordProfile"
             app:layout_constraintTop_toTopOf="@+id/phone_number" />
 
         <TextView
-            android:id="@+id/textView16"
+            android:id="@+id/forget"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"

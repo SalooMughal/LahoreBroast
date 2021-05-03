@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import com.lb.lahorebroast.cart.Cart
 import com.lb.lahorebroast.cart.CartDao
 
-@Database(entities = arrayOf(Cart::class), version = 2)
+@Database(entities = arrayOf(Cart::class), version = 3)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun todoDao(): CartDao
     companion object {

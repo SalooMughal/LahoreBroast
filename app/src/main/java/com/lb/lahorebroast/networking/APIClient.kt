@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit
 
 object APIClient {
     private var retrofit: Retrofit? = null
-    var BASE_URL = "https://pos.lahorebroast.com/api/"
+    var BASE_URL = "https://lb-pos.demo.techno-genes.com/api/"
     private val okHttpClient = OkHttpClient.Builder()
         .connectTimeout(1, TimeUnit.MINUTES)
         .readTimeout(30, TimeUnit.SECONDS)

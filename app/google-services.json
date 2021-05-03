@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "715918528120",
+    "project_id": "lahorebroast-848f8",
+    "storage_bucket": "lahorebroast-848f8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:715918528120:android:9c531e3d1f9b7cf354678d",
+        "android_client_info": {
+          "package_name": "com.lb.lahorebroast"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "715918528120-f1pqkg8ofdp6stvigdkm45sagi9knq8a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA4aFvmC2etTG--KtkuHdcONzoABSePAzc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "715918528120-f1pqkg8ofdp6stvigdkm45sagi9knq8a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

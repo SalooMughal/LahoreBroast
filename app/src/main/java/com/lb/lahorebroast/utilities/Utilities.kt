@@ -92,6 +92,8 @@ class Utilities {
             dialog?.setContentView(R.layout.myloader)
             dialog?.setCanceledOnTouchOutside(false)
             dialog?.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            dialog?.setCanceledOnTouchOutside(false)
+            dialog?.setCancelable(false)
             indicatorView = dialog?.findViewById(R.id.avi)
             startAnim()
             dialog?.show()
@@ -169,6 +171,13 @@ class Utilities {
             val calendar = Calendar.getInstance()
             val today = calendar.time
             val dateFormat =  SimpleDateFormat("yyyy-MMM-dd")
+            return dateFormat.format(today)
+        }
+        fun getCurrentTime():String
+        {
+            val calendar = Calendar.getInstance()
+            val today = calendar.time
+            val dateFormat =  SimpleDateFormat("hh")
             return dateFormat.format(today)
         }
         fun getTomorrowsDate(): String

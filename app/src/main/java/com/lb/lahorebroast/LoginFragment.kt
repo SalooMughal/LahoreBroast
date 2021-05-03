@@ -1,24 +1,25 @@
 package com.lb.lahorebroast
 
 import android.os.Bundle
-import android.transition.TransitionSet
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.messaging.FirebaseMessaging
 import com.lb.lahorebroast.model.RegisterationResponse
+import com.lb.lahorebroast.profile.ForgetPassword
 import com.lb.lahorebroast.utilities.TinyDB
 import com.lb.lahorebroast.utilities.Utilities
 import kotlinx.android.synthetic.main.fragment_login.*
-import kotlinx.android.synthetic.main.fragment_login.password
-import kotlinx.android.synthetic.main.fragment_login.phone_number
-import kotlinx.android.synthetic.main.fragment_sign_up.*
+
 
 class LoginFragment : Fragment() , SignUpViewModel.ServerResponse{
 
 
+    private var token: String? = null
     private lateinit var signUpViewModel: SignUpViewModel
 
     override fun onCreateView(
@@ -33,9 +34,29 @@ class LoginFragment : Fragment() , SignUpViewModel.ServerResponse{
         super.onActivityCreated(savedInstanceState)
         signUpViewModel =  ViewModelProvider(this).get(SignUpViewModel::class.java)
         signUpViewModel.serverResponse = this
+        FirebaseMessaging.getInstance().token
+            .addOnCompleteListener(OnCompleteListener { task ->
+                if (!task.isSuccessful) {
+                    return@OnCompleteListener
+                }
+
+                // Get new FCM registration token
+                 token = task.result
+
+            })
         userRegister.setOnClickListener {
             val ft = activity!!.supportFragmentManager.beginTransaction()
-            ft.replace(android.R.id.content,SignUpFragment()).setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right).addToBackStack(null).commit()
+            ft.replace(android.R.id.content, SignUpFragment()).setCustomAnimations(
+                android.R.anim.slide_in_left,
+                android.R.anim.slide_out_right
+            ).addToBackStack(null).commit()
+        }
+        forget.setOnClickListener {
+            val ft = activity!!.supportFragmentManager.beginTransaction()
+            ft.replace(android.R.id.content, ForgetPassword()).setCustomAnimations(
+                android.R.anim.slide_in_left,
+                android.R.anim.slide_out_right
+            ).addToBackStack(null).commit()
         }
         login.setOnClickListener {
             if (phone_number.text.toString().isEmpty()) {
@@ -46,17 +67,20 @@ class LoginFragment : Fragment() , SignUpViewModel.ServerResponse{
                 Utilities.showAlertDialog(activity!!, "Please Format your number as '03234383941' ")
                 return@setOnClickListener
             }
-            if (password.text.toString().isEmpty()) {
+            if (passwordProfile.text.toString().isEmpty()) {
                 Utilities.showAlertDialog(activity!!, "Please Check your password")
                 return@setOnClickListener
             }
-            if (phone_number.text.toString().isNotEmpty() && password.text.toString()
+            if (phone_number.text.toString().isNotEmpty() && passwordProfile.text.toString()
                     .isNotEmpty() &&
                 phone_number.text.length == 11) {
                 Utilities.progressdialog(activity!!)
                 val hashMap = HashMap<String, Any>()
                 hashMap["username"] = Utilities.countryCode + phone_number.text.toString()
-                hashMap["password"] = password.text.toString()
+                hashMap["password"] = passwordProfile.text.toString()
+                if(!token.isNullOrEmpty()) {
+                    hashMap["device_token"] = token.toString()
+                }
                 signUpViewModel.loginUser(hashMap)
             }
 
@@ -66,13 +90,13 @@ class LoginFragment : Fragment() , SignUpViewModel.ServerResponse{
 
     override fun onSuccessRegistration(user: RegisterationResponse.Data) {
         Utilities.finishprogress()
-        TinyDB(activity!!).putObject("user",user)
+        TinyDB(activity!!).putObject("user", user)
         activity!!.finish()
     }
 
     override fun onFailure(message: String) {
         Utilities.finishprogress()
-        Toast.makeText(activity!!,message, Toast.LENGTH_SHORT).show()
+        Toast.makeText(activity!!, message, Toast.LENGTH_SHORT).show()
 
     }
 }

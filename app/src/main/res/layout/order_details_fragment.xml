@@ -221,6 +221,29 @@
             app:layout_constraintTop_toBottomOf="@+id/textView50"
             app:layout_constraintVertical_bias="0.060000002" />
 
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/nunitosans_black"
+            android:text="Discount"
+            android:textColor="@color/mainThemeColor"
+            app:layout_constraintEnd_toEndOf="@+id/textView30"
+            app:layout_constraintTop_toBottomOf="@+id/view11" />
+
+        <TextView
+            android:id="@+id/discountOrder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunitosans_black"
+            android:text="0"
+            android:textColor="@color/productTitleColor"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="@+id/textView10"
+            app:layout_constraintStart_toStartOf="@+id/textView10"
+            app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
     <!--    </ScrollView>-->
 

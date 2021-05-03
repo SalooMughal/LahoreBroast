@@ -3,6 +3,7 @@ package com.lb.lahorebroast
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.lb.lahorebroast.cart.CouponResponse
 import com.lb.lahorebroast.networking.APIClient
 
 import com.lb.lahorebroast.model.*
@@ -24,6 +25,7 @@ class SplashActivty : AppCompatActivity() {
             CacheManager.instance.setUserData(TinyDB(this).getObject("user")!!)
             CacheManager.instance.setisLogin(true)
         }
+        fetchAppConfig()
         fetchLocations()
         fetchCategories()
         fetchPromotions()
@@ -97,6 +99,25 @@ class SplashActivty : AppCompatActivity() {
                     CacheManager.instance.setLocationData(response.body().data!! as ArrayList<Cities>)
                 }
             }
+        })
+    }
+    private fun fetchAppConfig()
+    {
+        val call : Call<AppConfigResponse> = retrofit.getAppConfig()
+        call.enqueue(object : Callback<AppConfigResponse>
+        {
+            override fun onFailure(call: Call<AppConfigResponse>?, t: Throwable?) {
+            }
+
+            override fun onResponse(
+                call: Call<AppConfigResponse>?,
+                response: Response<AppConfigResponse>?
+            ) {
+                if(response?.body()?.data != null) {
+                    CacheManager.instance.setAppConfig(response.body())
+                }
+            }
+
         })
     }
 }

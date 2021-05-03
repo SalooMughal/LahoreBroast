@@ -10,6 +10,9 @@ import com.lb.lahorebroast.model.OrderResponse
 import com.lb.lahorebroast.networking.RequestService
 import com.lb.lahorebroast.utilities.AppDatabase
 import com.lb.lahorebroast.utilities.CacheManager
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class CartViewModel(application: Application) : AndroidViewModel(application) {
     private var allCart : LiveData<List<Cart>>? = null
@@ -49,7 +52,7 @@ class CartViewModel(application: Application) : AndroidViewModel(application) {
         call.enqueue(object : retrofit2.Callback<OrderResponse>
         {
             override fun onFailure(call: retrofit2.Call<OrderResponse>?, t: Throwable?) {
-
+                serverResponse.onOrderSubmitted(false,"Some Internal issue")
                             }
 
             override fun onResponse(
@@ -60,16 +63,39 @@ class CartViewModel(application: Application) : AndroidViewModel(application) {
                 {
                     if(response.body().status!!)
                         {
-                            serverResponse.onOrderSubmitted(true)
+                            serverResponse.onOrderSubmitted(true,"Order Successfully created")
                         }else
                     {
-                        serverResponse.onOrderSubmitted(false)
+                        serverResponse.onOrderSubmitted(false,response.body().msg!!)
                     }
                 }else
                 {
-                    serverResponse.onOrderSubmitted(false)
+                    serverResponse.onOrderSubmitted(false,response?.body()?.msg!!)
                 }
 
+            }
+
+        })
+    }
+    fun fetchCouponDetails(coupon : String)
+    {
+        val call : Call<CouponResponse> = retrofit.validateCoupon(coupon)
+        call.enqueue(object : Callback<CouponResponse>
+        {
+            override fun onFailure(call: Call<CouponResponse>?, t: Throwable?) {
+                serverResponse.onCouponFailure(true)
+            }
+
+            override fun onResponse(
+                call: Call<CouponResponse>?,
+                response: Response<CouponResponse>?
+            ) {
+                if(response?.body()?.data?.discountAmount != null) {
+                    serverResponse.onCouponSuccess(response.body())
+                }else
+                {
+                    serverResponse.onCouponFailure(true)
+                }
             }
 
         })
@@ -77,6 +103,8 @@ class CartViewModel(application: Application) : AndroidViewModel(application) {
 
     interface ServerResponse
     {
-        fun onOrderSubmitted(boolean: Boolean)
+        fun onOrderSubmitted(boolean: Boolean,message : String)
+        fun onCouponFailure(boolean: Boolean)
+        fun onCouponSuccess(couponResponse: CouponResponse)
     }
 }

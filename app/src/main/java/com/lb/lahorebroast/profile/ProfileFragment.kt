@@ -54,8 +54,6 @@ class ProfileFragment : Fragment() {
             fm.add(android.R.id.content, MyOrders()).addToBackStack(null).commit()
         }
 
-
-
     }
     private fun initializeView(user : RegisterationResponse.Data)
     {

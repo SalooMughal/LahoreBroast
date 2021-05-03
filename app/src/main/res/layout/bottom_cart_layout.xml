@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/bottomSheet"
@@ -17,7 +18,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="600dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/home_background"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -31,7 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:fontFamily="@font/nunitosans_bold"
+            android:fontFamily="@font/nunitosans_black"
             android:paddingEnd="5dp"
             android:text="TOTAL PKR"
             android:textColor="@color/mainThemeColor"
@@ -60,7 +61,7 @@
             android:background="@drawable/fields_background"
             app:layout_constraintEnd_toEndOf="@+id/instantNotes"
             app:layout_constraintStart_toStartOf="@+id/instantNotes"
-            app:layout_constraintTop_toBottomOf="@+id/textView54">
+            app:layout_constraintTop_toBottomOf="@+id/couponCode">
 
 
             <TextView
@@ -230,7 +231,7 @@
             android:id="@+id/textView23"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/nunitosans_bold"
+            android:fontFamily="@font/nunitosans_black"
             android:text="ITEMS"
             android:textColor="@color/mainThemeColor"
             android:textSize="8sp"
@@ -269,7 +270,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:fontFamily="@font/nunitosans_bold"
+            android:fontFamily="@font/nunitosans_black"
             android:text="Payment Type"
             android:textColor="@color/mainThemeColor"
             android:textSize="10sp"
@@ -288,5 +289,45 @@
             android:textSize="12sp"
             app:layout_constraintStart_toStartOf="@+id/textView52"
             app:layout_constraintTop_toBottomOf="@+id/textView52" />
+
+        <EditText
+            android:id="@+id/couponCode"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/fields_background"
+            android:ems="10"
+            android:hint="Enter Coupon Code here"
+            android:inputType="textPersonName"
+            android:padding="10dp"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/discount"
+            app:layout_constraintEnd_toStartOf="@+id/textView24"
+            app:layout_constraintStart_toStartOf="@+id/cityContainer"
+            app:layout_constraintTop_toTopOf="@+id/textView7" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="13dp"
+            android:fontFamily="@font/nunitosans_black"
+            android:text="Discount"
+            android:textColor="@color/mainThemeColor"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/textView19"
+            app:layout_constraintTop_toBottomOf="@+id/cartButtomAmount" />
+
+        <TextView
+            android:id="@+id/discount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:fontFamily="@font/nunitosans_bold"
+            android:text="0"
+            android:textColor="@color/productTitleColor"
+            android:textSize="22sp"
+            app:layout_constraintEnd_toEndOf="@+id/textView7"
+            app:layout_constraintStart_toStartOf="@+id/textView7"
+            app:layout_constraintTop_toBottomOf="@+id/textView7" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

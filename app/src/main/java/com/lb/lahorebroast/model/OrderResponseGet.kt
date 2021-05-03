@@ -23,59 +23,59 @@ class OrderResponseGet {
     inner class Data {
         @SerializedName("id")
         @Expose
-         val id: Int? = null
+        val id: Int? = null
 
         @SerializedName("customer_id")
         @Expose
-         val customerId: Int? = null
+        val customerId: Int? = null
 
         @SerializedName("delivery_cost")
         @Expose
-         val deliveryCost: Any? = null
+        val deliveryCost: Any? = null
 
         @SerializedName("instructions")
         @Expose
-         val instructions: String? = null
+        val instructions: String? = null
 
         @SerializedName("order_source")
         @Expose
-         val orderSource: String? = null
+        val orderSource: String? = null
 
         @SerializedName("order")
         @Expose
-         val order: String? = null
+        val order: String? = null
 
         @SerializedName("complete_json")
         @Expose
-         val completeJson: String? = null
+        val completeJson: String? = null
 
         @SerializedName("status")
         @Expose
-         val status: String? = null
+        val status: String? = null
 
         @SerializedName("reviewed_by")
         @Expose
-         val reviewedBy: Any? = null
+        val reviewedBy: Any? = null
 
         @SerializedName("transaction_id")
         @Expose
-         val transactionId: Any? = null
+        val transactionId: Any? = null
 
         @SerializedName("city_id")
         @Expose
-         val cityId: Int? = null
+        val cityId: Int? = null
 
         @SerializedName("branch_id")
         @Expose
-         val branchId: Int? = null
+        val branchId: Int? = null
 
         @SerializedName("area_id")
         @Expose
-         val areaId: Int? = null
+        val areaId: Int? = null
 
         @SerializedName("address")
         @Expose
-         val address: String? = null
+        val address: String? = null
 
 
         @SerializedName("cart_total")
@@ -86,12 +86,39 @@ class OrderResponseGet {
         @Expose
         val cart_qty: Int? = null
 
+        @SerializedName("coupon")
+        @Expose
+        val coupon_code: Coupon? = null
+
         @SerializedName("created_at")
         @Expose
-         val createdAt: String? = null
+        val createdAt: String? = null
 
         @SerializedName("updated_at")
         @Expose
-         val updatedAt: String? = null
+        val updatedAt: String? = null
+    }
+
+    class Coupon {
+        @SerializedName("coupon_code")
+        @Expose
+        var couponCode: String? = null
+
+        @SerializedName("name")
+        @Expose
+        var name: String? = null
+
+        @SerializedName("end_date")
+        @Expose
+        var endDate: String? = null
+
+        @SerializedName("discount_amount")
+        @Expose
+        var discountAmount: String? = null
+
+        @SerializedName("discount_type")
+        @Expose
+        var discountType: String? = null
+
     }
 }

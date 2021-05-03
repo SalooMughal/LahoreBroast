@@ -9,6 +9,7 @@ data class Cart(
         @PrimaryKey(autoGenerate = true) var id: Long?,
         @ColumnInfo(name = "product_id") var product_id: Int,
         @ColumnInfo(name = "variation_id") var variation_id: Int,
+        @ColumnInfo(name = "cat_id") var car_id: String,
         @ColumnInfo(name = "product_name") var product_name: String,
         @ColumnInfo(name = "product_price") var product_price: Double,
         @ColumnInfo(name = "product_qty") var product_qty: Int,

@@ -13,6 +13,7 @@ import com.lb.lahorebroast.R
 import com.lb.lahorebroast.adapters.OrderItemsAdapter
 import com.lb.lahorebroast.model.OrderResponseGet
 import com.lb.lahorebroast.model.SingleOrder
+import kotlinx.android.synthetic.main.bottom_cart_layout.*
 import kotlinx.android.synthetic.main.order_details_fragment.*
 import kotlinx.android.synthetic.main.single_order_item.view.*
 import kotlinx.android.synthetic.main.single_order_item.view.orderDate
@@ -52,7 +53,22 @@ class OrderDetails(val order: OrderResponseGet.Data) : Fragment() {
         orderTotal.text = order.cart_total.toString()
         orderItemQty.text = order.cart_qty.toString()
         orderDate.text =order.createdAt
+        if(null == order.coupon_code)
+        {
+            discountOrder.text = "0"
+        }else
+        {
+            order.coupon_code.let {
+                if( order.coupon_code.discountType.equals("fixed")) {
+                    discountOrder.text = order.coupon_code.discountAmount
+                }else
+                {
+                    discountOrder.text = ((order.cart_total!!.toDouble()) * (order.coupon_code.discountAmount!!.toDouble())).div(100).toString()
+                }
 
+
+            }
+        }
         orderDay.text = order.status!!
         if(null != order.completeJson)
         { val list = ArrayList<SingleOrder>()

@@ -8,6 +8,8 @@ class CacheManager {
     private val hashMapInitialData2 : HashMap<String,ArrayList<Products>> = HashMap()
     private val hashMapInitialData3 : HashMap<String,ArrayList<Category>> = HashMap()
     private val hashMapInitialData4 : HashMap<String,ArrayList<Cities>> = HashMap()
+    private val appConfig : HashMap<String,AppConfigResponse> = HashMap()
+
     private val user : HashMap<String, RegisterationResponse.Data> = HashMap()
     private val isLogin : HashMap<String,Boolean> = HashMap()
     private object HOLDER  {
@@ -36,6 +38,18 @@ class CacheManager {
         if(hashMapInitialData.containsKey("promotions")) return hashMapInitialData["promotions"]!!
         return ArrayList<Promotions.Datum>()
     }
+
+    fun setAppConfig(appConfigResponse: AppConfigResponse)
+    {
+        appConfig["appConfig"] = appConfigResponse
+    }
+
+    fun getAppConfig(): AppConfigResponse
+    {
+        if(appConfig.containsKey("appConfig")) return appConfig["appConfig"]!!
+        return AppConfigResponse()
+    }
+
 
     fun setProductsData(initialData : ArrayList<Products>)
     {

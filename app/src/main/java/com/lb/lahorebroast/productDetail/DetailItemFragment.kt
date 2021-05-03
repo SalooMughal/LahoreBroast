@@ -66,6 +66,7 @@ class DetailItemFragment(val products: Products) : Fragment() {
                 null,
                 products.id!!,
                 products.variation_id!!,
+                products.category!!,
                 products.name!!,
                 products.sellPriceIncTax!!.toDouble(),
                 count,

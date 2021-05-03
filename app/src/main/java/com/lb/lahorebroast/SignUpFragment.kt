@@ -8,14 +8,20 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModelProvider
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.messaging.FirebaseMessaging
 import com.lb.lahorebroast.model.RegisterationResponse
 import com.lb.lahorebroast.utilities.TinyDB
 import com.lb.lahorebroast.utilities.Utilities
+import kotlinx.android.synthetic.main.fragment_login.*
 import kotlinx.android.synthetic.main.fragment_sign_up.*
+import kotlinx.android.synthetic.main.fragment_sign_up.passwordProfile
+import kotlinx.android.synthetic.main.fragment_sign_up.phone_number
 
 
 class SignUpFragment : Fragment(),SignUpViewModel.ServerResponse {
 
+    private var token: String? = null
     lateinit var signUpViewModel: SignUpViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +39,16 @@ class SignUpFragment : Fragment(),SignUpViewModel.ServerResponse {
         super.onActivityCreated(savedInstanceState)
         signUpViewModel =  ViewModelProvider(this).get(SignUpViewModel::class.java)
         signUpViewModel.serverResponse = this
+        FirebaseMessaging.getInstance().token
+            .addOnCompleteListener(OnCompleteListener { task ->
+                if (!task.isSuccessful) {
+                    return@OnCompleteListener
+                }
+
+                // Get new FCM registration token
+                token = task.result
+
+            })
         register.setOnClickListener {
             if (rUserName.text.toString().isEmpty()) {
                 Utilities.showAlertDialog(activity!!, "Please Check your UserName")
@@ -53,12 +69,12 @@ class SignUpFragment : Fragment(),SignUpViewModel.ServerResponse {
                 Utilities.showAlertDialog(activity!!, "Please Format your number as '03234383941' ")
                 return@setOnClickListener
             }
-            if (password.text.toString().isEmpty()) {
+            if (passwordProfile.text.toString().isEmpty()) {
                 Utilities.showAlertDialog(activity!!, "Please Check your password")
                 return@setOnClickListener
             }
             if (rUserName.text.toString().isNotEmpty() && email.text.toString().isNotEmpty() &&
-                phone_number.text.toString().isNotEmpty() && password.text.toString()
+                phone_number.text.toString().isNotEmpty() && passwordProfile.text.toString()
                     .isNotEmpty() &&
                 phone_number.text.length == 11 && android.util.Patterns.EMAIL_ADDRESS.matcher(email.text)
                     .matches()
@@ -69,7 +85,10 @@ class SignUpFragment : Fragment(),SignUpViewModel.ServerResponse {
                 hashMap["email"] = email.text.toString()
                 hashMap["mobile"] = Utilities.countryCode + phone_number.text.toString()
                 hashMap["customer_group_id"] = "2"
-                hashMap["password"] = password.text.toString()
+                hashMap["password"] = passwordProfile.text.toString()
+                if(!token.isNullOrEmpty()) {
+                    hashMap["device_token"] = token.toString()
+                }
 
                 signUpViewModel.registerUser(hashMap)
             }
